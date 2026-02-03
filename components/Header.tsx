@@ -35,6 +35,13 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
               Menu
             </a>
             <a
+              href="#ambiance"
+              onClick={(e) => scrollToSection(e, 'ambiance')}
+              className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"
+            >
+              The Space
+            </a>
+            <a
               href="#custom-cakes"
               onClick={(e) => scrollToSection(e, 'custom-cakes')}
               className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"

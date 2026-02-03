@@ -42,7 +42,7 @@ const Gallery: React.FC = () => {
     };
 
     return (
-        <section ref={sectionRef} id="gallery" className="bg-primary/5 py-32 overflow-hidden">
+        <section ref={sectionRef} id="gallery" className="bg-primary/5 py-16 lg:py-32 overflow-hidden">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center space-y-4 mb-16">
                     <p className="text-xs font-extrabold text-primary tracking-[0.2em] uppercase">Visual Inspiration</p>
@@ -52,7 +52,7 @@ const Gallery: React.FC = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-8">
                     {INSTAGRAM_IMAGES.map((img, index) => (
                         <div
                             key={img.id}

@@ -18,13 +18,13 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="visit-us" className="bg-white pt-24 pb-12 border-t border-[#f3e8ec]">
+    <footer id="footer" className="bg-[#fbf8fa] pt-24 pb-12 border-t border-[#f3e8ec]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 pb-16 border-b border-[#f3e8ec]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 border-b border-[#f3e8ec]">
           {/* Brand */}
           <div className="space-y-6">
-            <a 
-              href="#hero" 
+            <a
+              href="#hero"
               onClick={(e) => scrollToSection(e, 'hero')}
               className="flex items-center gap-2 group cursor-pointer inline-flex"
             >
@@ -53,28 +53,16 @@ const Footer: React.FC = () => {
                 </a>
               </li>
               <li>
-                <a href="#instagram" onClick={(e) => scrollToSection(e, 'instagram')} className="hover:text-primary transition-colors cursor-pointer block">
+                <a href="#gallery" onClick={(e) => scrollToSection(e, 'gallery')} className="hover:text-primary transition-colors cursor-pointer block">
                   Gallery
                 </a>
               </li>
               <li>
-                <a href="#hero" onClick={(e) => scrollToSection(e, 'hero')} className="hover:text-primary transition-colors cursor-pointer block">
-                  About Us
+                <a href="#visit-us" onClick={(e) => scrollToSection(e, 'visit-us')} className="hover:text-primary transition-colors cursor-pointer block">
+                  Visit Us
                 </a>
               </li>
             </ul>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-bold text-text-main mb-6">Visit Us</h4>
-            <div className="space-y-4 text-sm text-text-sub">
-              <p>BSD Green Office Park,<br />Sampora, Cisauk, Tangerang,<br />Banten 15345</p>
-              <div className="pt-2">
-                <p><span className="font-bold text-text-main">Mon - Fri:</span> 8am - 9pm</p>
-                <p><span className="font-bold text-text-main">Sat - Sun:</span> 9am - 10pm</p>
-              </div>
-            </div>
           </div>
 
           {/* Newsletter */}
@@ -82,9 +70,9 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-text-main">Sweet News</h4>
             <p className="text-sm text-text-sub">Join our newsletter for exclusive offers.</p>
             <div className="flex gap-2">
-              <input 
-                type="email" 
-                placeholder="Email address" 
+              <input
+                type="email"
+                placeholder="Email address"
                 className="flex-grow h-12 px-4 rounded-xl bg-bg-soft border border-[#e6d1da] focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
               />
               <button className="w-12 h-12 bg-primary text-white rounded-xl flex items-center justify-center hover:opacity-90 transition-opacity shadow-lg shadow-primary/20">
@@ -94,6 +82,7 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
+        {/* Copyright & Socials */}
         <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-xs text-text-sub">© 2023 Sugar Bloom Atelier. All rights reserved.</p>
           <div className="flex items-center gap-6">
