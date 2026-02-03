@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #fbf8fa;
+  color: #1b0e13;
+}
+
+.material-symbols-outlined {
+  font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.fill-icon {
+  font-variation-settings: 'FILL' 1;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glassmorphism nav */
+.nav-blur {
+  backdrop-filter: blur(12px);
+  background-color: rgba(251, 248, 250, 0.85);
+}
