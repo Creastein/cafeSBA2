@@ -1,33 +1,21 @@
 
 import React from 'react';
+import { useScrollTo } from '../hooks/useScrollTo';
 
 interface HeaderProps {
   cartCount: number;
 }
 
 const Header: React.FC<HeaderProps> = ({ cartCount }) => {
-  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
-    e.preventDefault();
-    const element = document.getElementById(id);
-    if (element) {
-      const headerOffset = 80;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-    }
-  };
+  const scrollToSection = useScrollTo();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 nav-blur border-b border-[#f3e8ec]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <a 
-            href="#hero" 
+          <a
+            href="#hero"
             onClick={(e) => scrollToSection(e, 'hero')}
             className="flex items-center gap-2 group cursor-pointer"
           >
@@ -39,29 +27,29 @@ const Header: React.FC<HeaderProps> = ({ cartCount }) => {
 
           {/* Nav Links */}
           <nav className="hidden md:flex items-center gap-8">
-            <a 
-              href="#menu" 
+            <a
+              href="#menu"
               onClick={(e) => scrollToSection(e, 'menu')}
               className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"
             >
-              Shop
+              Menu
             </a>
-            <a 
-              href="#custom-cakes" 
+            <a
+              href="#custom-cakes"
               onClick={(e) => scrollToSection(e, 'custom-cakes')}
               className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"
             >
               Custom Cakes
             </a>
-            <a 
-              href="#instagram" 
-              onClick={(e) => scrollToSection(e, 'instagram')}
+            <a
+              href="#gallery"
+              onClick={(e) => scrollToSection(e, 'gallery')}
               className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"
             >
               Gallery
             </a>
-            <a 
-              href="#visit-us" 
+            <a
+              href="#visit-us"
               onClick={(e) => scrollToSection(e, 'visit-us')}
               className="text-sm font-semibold text-text-main hover:text-primary transition-colors cursor-pointer"
             >
