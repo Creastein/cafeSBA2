@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, useScroll, useTransform, AnimatePresence, Variants } from 'framer-motion';
 import { useScrollTo } from '../hooks/useScrollTo';
 
 const CAROUSEL_IMAGES = [
@@ -16,6 +16,34 @@ const CAROUSEL_IMAGES = [
     alt: 'Premium Shine Muscat Shortcake'
   }
 ];
+
+const RotatingBadge: React.FC = () => {
+  return (
+    <motion.div
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+      className="absolute -top-12 -right-12 z-10 w-32 h-32 hidden lg:flex items-center justify-center pointer-events-none"
+    >
+      <div className="relative w-full h-full">
+        <svg viewBox="0 0 100 100" className="w-full h-full overflow-visible">
+          <path
+            id="curve"
+            d="M 50 50 m -37 0 a 37 37 0 1 1 74 0 a 37 37 0 1 1 -74 0"
+            fill="transparent"
+          />
+          <text className="text-[10px] font-bold uppercase tracking-widest fill-primary">
+            <textPath href="#curve" startOffset="0%">
+              Premium Quality • Fresh Daily • Premium Quality • Fresh Daily •
+            </textPath>
+          </text>
+        </svg>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="material-symbols-outlined text-primary text-2xl">verified</span>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
 
 const Hero: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -51,7 +79,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -62,19 +90,19 @@ const Hero: React.FC = () => {
     }
   };
 
-  const textRevealVariants = {
+  const textRevealVariants: Variants = {
     hidden: { y: "100%", opacity: 0 },
     show: {
       y: "0%",
       opacity: 1,
       transition: {
         duration: 1.2,
-        ease: [0.22, 1, 0.36, 1] // easeOutQuart-ish
+        ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
-  const fadeInVariants = {
+  const fadeInVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
@@ -90,44 +118,43 @@ const Hero: React.FC = () => {
         style={{ y: yBg1 }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10"
+        className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -z-10"
       ></motion.div>
       <motion.div
         style={{ y: yBg2 }}
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] -z-10"
+        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10"
       ></motion.div>
 
-      <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
+      <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
         <motion.div
           style={{ y: yText }}
-          className="flex-1 space-y-10 z-10 lg:-mt-20"
+          className="flex-1 space-y-12 z-10 lg:-mt-24"
         >
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="space-y-10"
+            className="space-y-12"
           >
-            <div className="space-y-4">
+            <div className="space-y-6">
               <motion.div
                 variants={fadeInVariants}
-                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#f3e8ec] rounded-full shadow-sm"
-                whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(230, 76, 140, 0.15)" }}
+                className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 border border-primary/10 rounded-full"
               >
-                <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
-                <span className="text-[10px] font-extrabold text-primary tracking-[0.2em] uppercase">Handcrafted in BSD</span>
+                <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                <span className="text-[10px] font-bold text-primary tracking-[0.2em] uppercase">Handcrafted in BSD</span>
               </motion.div>
 
-              <div className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.05] text-text-main">
+              <div className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.1] text-text-main tracking-tight">
                 <div className="overflow-hidden">
                   <motion.div variants={textRevealVariants}>
                     Specialty Coffee
                   </motion.div>
                 </div>
                 <div className="overflow-hidden flex flex-wrap gap-x-4">
-                  <motion.span variants={textRevealVariants} className="text-primary italic inline-block">
+                  <motion.span variants={textRevealVariants} className="text-primary italic inline-block font-medium">
                     &amp; Artisan
                   </motion.span>
                   <motion.span variants={textRevealVariants} className="inline-block">
@@ -186,6 +213,9 @@ const Hero: React.FC = () => {
           className="flex-1 w-full relative z-20 flex justify-center items-center"
         >
           <div className="relative w-full max-w-[500px] h-[500px] flex items-center justify-center perspective-1000">
+            {/* Rotating Badge on the Top-Right of the image container */}
+            <RotatingBadge />
+
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}

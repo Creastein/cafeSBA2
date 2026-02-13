@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MENUS } from '../../constants';
 import { useMenu, useMenuFilter } from './hooks/useMenu';
@@ -25,6 +25,11 @@ const MenuSection: React.FC = () => {
     hasActiveFilters,
     totalResults
   } = useMenuFilter(activeMenu);
+
+  // Reset filters when tab changes
+  useEffect(() => {
+    clearFilters();
+  }, [activeTab, clearFilters]);
 
   return (
     <section id="menu" className="py-20 bg-[#fffcfc]">

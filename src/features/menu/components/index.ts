@@ -7,3 +7,4 @@ export { default as PriceTag } from './PriceTag';
 export { default as SearchBar } from './SearchBar';
 export { default as TagFilter } from './TagFilter';
 export { default as SortDropdown } from './SortDropdown';
+export { default as ImageModal } from './ImageModal';
