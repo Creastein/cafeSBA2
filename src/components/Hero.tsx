@@ -62,7 +62,7 @@ const Hero: React.FC = () => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.8, ease: "easeOut" as const }
     }
   };
 
@@ -79,7 +79,7 @@ const Hero: React.FC = () => {
       ></motion.div>
 
       <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-        <div className="flex-1 space-y-10 z-10">
+        <div className="flex-1 space-y-10 z-10 lg:-mt-20">
           <motion.div
             variants={containerVariants}
             initial="hidden"

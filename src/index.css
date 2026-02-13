@@ -1,6 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #e64c8c;
+  --color-bg-soft: #fbf8fa;
+  --color-text-main: #1b0e13;
+  --color-text-sub: #95506d;
+  --font-sans: "Plus Jakarta Sans", sans-serif;
+  --font-serif: "Playfair Display", serif;
+}
 
 body {
   background-color: #fbf8fa;

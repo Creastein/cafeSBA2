@@ -45,7 +45,16 @@ export interface MenuItem {
   variants?: ('hot' | 'iced')[];
 }
 
-// ... (MenuCategory, MenuSection interfaces remain the same)
+export interface MenuCategory {
+  title: string;
+  items: MenuItem[];
+}
+
+export interface MenuSection {
+  id: string;
+  label: string;
+  categories: MenuCategory[];
+}
 
 export const MENUS: MenuSection[] = [
   // ... (Dessert section remains the same)
