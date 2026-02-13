@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from 'react';
-import type { MenuSectionData, MenuState } from '../types/menu';
+import type { MenuSectionData, MenuState, MenuFilterState, MenuItem, MenuCategory } from '../types/menu';
 
 /**
  * Custom hook for menu state management
@@ -24,18 +24,87 @@ export function useMenu(menus: MenuSectionData[]): MenuState {
 }
 
 /**
- * Hook untuk filter menu items berdasarkan kriteria
- * (Untuk Phase 2 - Search & Filter)
+ * Parse price string to number for comparison
+ * Handles formats like "24K", "40", "51K"
  */
-export function useMenuFilter(items: MenuSectionData[]) {
-  // Placeholder untuk filter functionality
-  // Akan diimplementasikan di Phase 2
+function parsePrice(priceStr: string): number {
+  const numericValue = parseFloat(priceStr.replace(/[^0-9.]/g, ''));
+  return isNaN(numericValue) ? 0 : numericValue;
+}
+
+/**
+ * Hook untuk filter menu items berdasarkan kriteria
+ * Phase 2: Search & Filter Implementation
+ */
+export function useMenuFilter(menu: MenuSectionData | undefined) {
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [sortBy, setSortBy] = useState<MenuFilterState['sortBy']>('default');
+
+  const toggleTag = useCallback((tag: string) => {
+    setSelectedTags(prev =>
+      prev.includes(tag)
+        ? prev.filter(t => t !== tag)
+        : [...prev, tag]
+    );
+  }, []);
+
+  const clearFilters = useCallback(() => {
+    setSearchQuery('');
+    setSelectedTags([]);
+    setSortBy('default');
+  }, []);
+
+  const filteredCategories = useMemo(() => {
+    if (!menu) return [];
+
+    return menu.categories.map(category => {
+      let filteredItems = category.items.filter(item => {
+        // Search filter
+        const searchMatch = !searchQuery ||
+          item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (item.description?.toLowerCase().includes(searchQuery.toLowerCase()) ?? false);
+
+        // Tag filter
+        const tagMatch = selectedTags.length === 0 ||
+          selectedTags.some(tag => item.tags?.includes(tag));
+
+        return searchMatch && tagMatch;
+      });
+
+      // Sorting
+      if (sortBy === 'price-asc') {
+        filteredItems = [...filteredItems].sort((a, b) => parsePrice(a.price) - parsePrice(b.price));
+      } else if (sortBy === 'price-desc') {
+        filteredItems = [...filteredItems].sort((a, b) => parsePrice(b.price) - parsePrice(a.price));
+      } else if (sortBy === 'name-asc') {
+        filteredItems = [...filteredItems].sort((a, b) => a.name.localeCompare(b.name));
+      }
+
+      return {
+        ...category,
+        items: filteredItems
+      };
+    }).filter(category => category.items.length > 0);
+  }, [menu, searchQuery, selectedTags, sortBy]);
+
+  const hasActiveFilters = searchQuery !== '' || selectedTags.length > 0 || sortBy !== 'default';
+
+  const totalResults = filteredCategories.reduce(
+    (sum, cat) => sum + cat.items.length, 0
+  );
+
   return {
-    filteredItems: items,
-    searchQuery: '',
-    setSearchQuery: () => {},
-    selectedTags: [],
-    toggleTag: () => {},
+    searchQuery,
+    setSearchQuery,
+    selectedTags,
+    toggleTag,
+    sortBy,
+    setSortBy,
+    filteredCategories,
+    clearFilters,
+    hasActiveFilters,
+    totalResults,
   };
 }
 

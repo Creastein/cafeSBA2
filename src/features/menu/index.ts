@@ -10,6 +10,10 @@ export type {
   MenuItemCardProps,
   MenuItemRowProps,
   PriceTagProps,
+  MenuFilterState,
+  SearchBarProps,
+  TagFilterProps,
+  SortDropdownProps,
 } from './types/menu';
 
 // Hooks

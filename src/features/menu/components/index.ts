@@ -4,3 +4,6 @@ export { default as MenuList } from './MenuList';
 export { default as MenuItemCard } from './MenuItemCard';
 export { default as MenuItemRow } from './MenuItemRow';
 export { default as PriceTag } from './PriceTag';
+export { default as SearchBar } from './SearchBar';
+export { default as TagFilter } from './TagFilter';
+export { default as SortDropdown } from './SortDropdown';

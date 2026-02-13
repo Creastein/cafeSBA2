@@ -20,14 +20,19 @@ const CAROUSEL_IMAGES = [
 const Hero: React.FC = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const { scrollY } = useScroll();
-  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
-  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
+  // Parallax effects
+  const yText = useTransform(scrollY, [0, 500], [0, 100]);
+  const yImage = useTransform(scrollY, [0, 500], [0, -50]);
+  const scaleImage = useTransform(scrollY, [0, 500], [1, 1.1]);
+  const yBg1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const yBg2 = useTransform(scrollY, [0, 500], [0, -150]);
 
   // Auto-rotate carousel
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
-    }, 4000); // Change every 4 seconds
+    }, 5000);
     return () => clearInterval(timer);
   }, []);
 
@@ -51,18 +56,30 @@ const Hero: React.FC = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3
+        staggerChildren: 0.15,
+        delayChildren: 0.2
       }
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+  const textRevealVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    show: {
+      y: "0%",
+      opacity: 1,
+      transition: {
+        duration: 1.2,
+        ease: [0.22, 1, 0.36, 1] // easeOutQuart-ish
+      }
+    }
+  };
+
+  const fadeInVariants = {
+    hidden: { opacity: 0, y: 20 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" as const }
+      transition: { duration: 0.8, ease: "easeOut" }
     }
   };
 
@@ -70,16 +87,23 @@ const Hero: React.FC = () => {
     <section id="hero" className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Background Decorative Elements */}
       <motion.div
-        style={{ y: y1 }}
+        style={{ y: yBg1 }}
+        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
         className="absolute top-0 right-0 -mr-20 -mt-20 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px] -z-10"
       ></motion.div>
       <motion.div
-        style={{ y: y2 }}
+        style={{ y: yBg2 }}
+        animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
         className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px] -z-10"
       ></motion.div>
 
       <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-8">
-        <div className="flex-1 space-y-10 z-10 lg:-mt-20">
+        <motion.div
+          style={{ y: yText }}
+          className="flex-1 space-y-10 z-10 lg:-mt-20"
+        >
           <motion.div
             variants={containerVariants}
             initial="hidden"
@@ -87,50 +111,48 @@ const Hero: React.FC = () => {
             className="space-y-10"
           >
             <div className="space-y-4">
-              <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#f3e8ec] rounded-full shadow-sm">
+              <motion.div
+                variants={fadeInVariants}
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-white border border-[#f3e8ec] rounded-full shadow-sm"
+                whileHover={{ scale: 1.05, boxShadow: "0 4px 12px rgba(230, 76, 140, 0.15)" }}
+              >
                 <span className="w-2 h-2 rounded-full bg-primary animate-ping"></span>
                 <span className="text-[10px] font-extrabold text-primary tracking-[0.2em] uppercase">Handcrafted in BSD</span>
               </motion.div>
 
-              <div className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.05] text-text-main overflow-hidden">
-                <motion.div
-                  initial="hidden"
-                  animate="visible"
-                  variants={{
-                    visible: { transition: { staggerChildren: 0.1 } }
-                  }}
-                >
-                  <div className="overflow-hidden">
-                    <motion.span variants={{ hidden: { y: "100%" }, visible: { y: 0, transition: { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.95] } } }} className="inline-block">
-                      Specialty Coffee
-                    </motion.span>
-                  </div>
-                  <div className="overflow-hidden">
-                    <motion.span variants={{ hidden: { y: "100%" }, visible: { y: 0, transition: { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.95] } } }} className="inline-block text-primary italic">
-                      &amp; Artisan
-                    </motion.span>{" "}
-                    <motion.span variants={{ hidden: { y: "100%" }, visible: { y: 0, transition: { duration: 0.8, ease: [0.6, 0.01, -0.05, 0.95] } } }} className="inline-block">
-                      Cakes
-                    </motion.span>
-                  </div>
-                </motion.div>
+              <div className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.05] text-text-main">
+                <div className="overflow-hidden">
+                  <motion.div variants={textRevealVariants}>
+                    Specialty Coffee
+                  </motion.div>
+                </div>
+                <div className="overflow-hidden flex flex-wrap gap-x-4">
+                  <motion.span variants={textRevealVariants} className="text-primary italic inline-block">
+                    &amp; Artisan
+                  </motion.span>
+                  <motion.span variants={textRevealVariants} className="inline-block">
+                    Cakes
+                  </motion.span>
+                </div>
               </div>
             </div>
 
             <motion.p
-              variants={itemVariants}
+              variants={fadeInVariants}
               className="text-lg text-text-sub max-w-md leading-relaxed"
             >
               Experience the perfect pairing of <b>100% Gluten Free</b> Korean desserts and expertly brewed specialty coffee. A sanctuary for your daily indulgence.
             </motion.p>
 
             <motion.div
-              variants={itemVariants}
+              variants={fadeInVariants}
               className="flex flex-col sm:flex-row gap-5"
             >
-              <a
+              <motion.a
                 href="#menu"
                 onClick={(e) => scrollToSection(e, 'menu')}
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.98 }}
                 className="relative overflow-hidden h-16 px-10 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group cursor-pointer"
               >
                 {/* Shimmer Effect */}
@@ -142,42 +164,44 @@ const Hero: React.FC = () => {
 
                 <span className="relative z-10">Explore Collection</span>
                 <span className="material-symbols-outlined transition-transform group-hover:translate-x-1 relative z-10">east</span>
-              </a>
-              <a
+              </motion.a>
+              <motion.a
                 href="#visit-us"
                 onClick={(e) => scrollToSection(e, 'visit-us')}
-                className="h-16 px-10 bg-white border border-[#e6d1da] hover:border-primary text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
+                whileHover={{ scale: 1.05, y: -2, borderColor: "#e64c8c" }}
+                whileTap={{ scale: 0.98 }}
+                className="h-16 px-10 bg-white border border-[#e6d1da] text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
               >
                 Visit Shop
                 <span className="material-symbols-outlined">location_on</span>
-              </a>
+              </motion.a>
             </motion.div>
 
 
           </motion.div>
-        </div>
+        </motion.div>
 
         <motion.div
-          animate={{ y: [0, -15, 0] }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          style={{ y: yImage, scale: scaleImage }}
           className="flex-1 w-full relative z-20 flex justify-center items-center"
         >
-          <div className="relative w-full max-w-[500px] h-[500px] flex items-center justify-center">
+          <div className="relative w-full max-w-[500px] h-[500px] flex items-center justify-center perspective-1000">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}
-                initial={{ opacity: 0, x: 50, scale: 0.9 }}
-                animate={{ opacity: 1, x: 0, scale: 1 }}
-                exit={{ opacity: 0, x: -50, scale: 0.9 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                whileHover={{ scale: 1.05, rotate: 5 }}
+                initial={{ opacity: 0, x: 80, rotateY: 20, scale: 0.9 }}
+                animate={{ opacity: 1, x: 0, rotateY: 0, scale: 1 }}
+                exit={{ opacity: 0, x: -80, rotateY: -20, scale: 0.9 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0.16, 1, 0.3, 1] // easeOutExpo
+                }}
                 src={CAROUSEL_IMAGES[currentIndex].url}
                 alt={CAROUSEL_IMAGES[currentIndex].alt}
-                className="w-full h-auto object-cover rounded-3xl cursor-pointer drop-shadow-2xl absolute"
+                className="w-full h-auto object-cover rounded-3xl cursor-pointer drop-shadow-2xl absolute shadow-primary/10"
+                style={{
+                  transformStyle: "preserve-3d"
+                }}
               />
             </AnimatePresence>
           </div>
