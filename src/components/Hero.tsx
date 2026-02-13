@@ -84,8 +84,8 @@ const Hero: React.FC = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2
+        staggerChildren: 0.1,
+        delayChildren: 0.1
       }
     }
   };
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
       y: "0%",
       opacity: 1,
       transition: {
-        duration: 1.2,
+        duration: 0.8,
         ease: [0.22, 1, 0.36, 1]
       }
     }
@@ -107,7 +107,7 @@ const Hero: React.FC = () => {
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" }
+      transition: { duration: 0.6, ease: "easeOut" }
     }
   };
 
@@ -130,13 +130,13 @@ const Hero: React.FC = () => {
       <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
         <motion.div
           style={{ y: yText }}
-          className="flex-1 space-y-12 z-10 lg:-mt-24"
+          className="flex-1 space-y-8 z-10 lg:-mt-24"
         >
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="space-y-12"
+            className="space-y-8"
           >
             <div className="space-y-6">
               <motion.div
@@ -173,14 +173,14 @@ const Hero: React.FC = () => {
 
             <motion.div
               variants={fadeInVariants}
-              className="flex flex-col sm:flex-row gap-5"
+              className="flex flex-col sm:flex-row gap-5 relative z-30"
             >
               <motion.a
                 href="#menu"
                 onClick={(e) => scrollToSection(e, 'menu')}
-                whileHover={{ scale: 1.05, y: -2 }}
+                whileHover={{ scale: 1.05, y: -2, boxShadow: "0 20px 30px -10px rgba(230, 76, 140, 0.4)" }}
                 whileTap={{ scale: 0.98 }}
-                className="relative overflow-hidden h-16 px-10 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group cursor-pointer"
+                className="relative overflow-hidden h-14 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group cursor-pointer"
               >
                 {/* Shimmer Effect */}
                 <motion.div
@@ -195,9 +195,9 @@ const Hero: React.FC = () => {
               <motion.a
                 href="#visit-us"
                 onClick={(e) => scrollToSection(e, 'visit-us')}
-                whileHover={{ scale: 1.05, y: -2, borderColor: "#e64c8c" }}
+                whileHover={{ scale: 1.05, y: -2, borderColor: "#e64c8c", boxShadow: "0 10px 20px -10px rgba(0,0,0,0.1)" }}
                 whileTap={{ scale: 0.98 }}
-                className="h-16 px-10 bg-white border border-[#e6d1da] text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
+                className="h-14 px-8 bg-white border border-[#e6d1da] text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
               >
                 Visit Shop
                 <span className="material-symbols-outlined">location_on</span>
