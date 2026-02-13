@@ -212,9 +212,9 @@ const AmbianceSection: React.FC = () => {
                 className="md:col-span-8 md:row-span-12 aspect-square md:aspect-auto rounded-[2.5rem] overflow-hidden relative shadow-2xl"
               >
                 <img
-                  src="/hero-cake.png"
+                  src="/Experience1.png"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                  alt="Interior"
+                  alt="Outdoor Seating Area"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                 <motion.div
@@ -224,7 +224,7 @@ const AmbianceSection: React.FC = () => {
                   transition={{ delay: 0.3 }}
                   className="absolute bottom-6 left-6 text-white"
                 >
-                  <p className="font-serif text-2xl">Main Hall</p>
+                  <p className="font-serif text-2xl">Outdoor Ambiance</p>
                 </motion.div>
               </motion.div>
 
@@ -239,9 +239,9 @@ const AmbianceSection: React.FC = () => {
                 className="hidden md:block md:col-span-4 md:row-span-5 rounded-[2rem] overflow-hidden shadow-xl"
               >
                 <img
-                  src="/hero-coffee.png"
+                  src="/Experience2.png"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                  alt="Detail"
+                  alt="Cozy Interior"
                 />
               </motion.div>
 
@@ -256,9 +256,9 @@ const AmbianceSection: React.FC = () => {
                 className="md:col-span-4 md:row-span-7 aspect-video md:aspect-auto rounded-[2rem] overflow-hidden shadow-xl"
               >
                 <img
-                  src="/hero-cake-2.png"
+                  src="/Experience3.png"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                  alt="Bar"
+                  alt="Modern Seating"
                 />
               </motion.div>
 
