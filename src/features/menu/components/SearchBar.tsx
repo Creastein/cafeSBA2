@@ -8,7 +8,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 }) => {
   return (
     <div className="relative">
-      <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-sub/50">
+      <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-text-sub/60">
         search
       </span>
       <input
@@ -16,7 +16,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full pl-12 pr-4 py-3 bg-white border border-[#f3e8ec] rounded-full text-text-main placeholder:text-text-sub/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
+        className="w-full pl-12 pr-4 py-3 bg-surface border border-border rounded-full text-text-main placeholder:text-text-sub/50 focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 transition-all"
       />
       {value && (
         <button

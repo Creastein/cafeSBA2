@@ -42,14 +42,14 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer id="footer" className="bg-[#fbf8fa] pt-24 pb-12 border-t border-[#f3e8ec]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <footer id="footer" className="bg-bg-soft pt-24 pb-12 border-t border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 border-b border-[#f3e8ec]"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pb-16 border-b border-border"
         >
           {/* Brand */}
           <motion.div variants={fadeInUp} className="space-y-6">
@@ -62,10 +62,10 @@ const Footer: React.FC = () => {
               <motion.div 
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.5 }}
-                className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center"
-              >
-                <span className="material-symbols-outlined text-primary text-xl fill-icon">cake</span>
-              </motion.div>
+              className="w-8 h-8 bg-primary/10 rounded-xl flex items-center justify-center"
+            >
+              <span className="material-symbols-outlined text-primary text-xl fill-icon">cake</span>
+            </motion.div>
               <h3 className="font-serif text-xl font-bold text-text-main">Sugar Bloom</h3>
             </motion.a>
             <p className="text-sm text-text-sub leading-relaxed max-w-xs">
@@ -117,7 +117,7 @@ const Footer: React.FC = () => {
               <input
                 type="email"
                 placeholder="Email address"
-                className="flex-grow h-12 px-4 rounded-xl bg-bg-soft border border-[#e6d1da] focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
+                className="flex-grow h-12 px-4 rounded-xl bg-surface border border-border focus:outline-none focus:ring-2 focus:ring-primary/20 text-sm transition-all"
               />
               <motion.button 
                 whileHover={{ scale: 1.1, rotate: 5 }}

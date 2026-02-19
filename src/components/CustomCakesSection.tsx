@@ -63,8 +63,8 @@ const scaleIn: Variants = {
 
 const CustomCakesSection: React.FC = () => {
   return (
-    <section id="custom-cakes" className="py-24 bg-white overflow-hidden border-b border-[#f3e8ec]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="custom-cakes" className="py-28 bg-surface overflow-hidden border-b border-border">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row items-center gap-16">
           {/* Image Collage Side */}
           <motion.div 
@@ -91,7 +91,7 @@ const CustomCakesSection: React.FC = () => {
             <motion.div 
               variants={scaleIn}
               whileHover={{ scale: 1.02 }}
-              className="relative aspect-[4/5] w-[80%] rounded-t-[500px] overflow-hidden border-[12px] border-[#fbf8fa] shadow-2xl z-10"
+              className="relative aspect-[4/5] w-[80%] rounded-t-[500px] overflow-hidden border-[12px] border-bg-soft shadow-2xl z-10"
             >
               <motion.img 
                 src="/hero-cake.png"
@@ -110,7 +110,7 @@ const CustomCakesSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
               whileHover={{ scale: 1.05, rotate: 5 }}
-              className="absolute top-1/2 -right-4 w-[60%] aspect-square rounded-full overflow-hidden border-[8px] border-white shadow-xl z-20 translate-y-[-10%] hidden md:block group"
+              className="absolute top-1/2 -right-4 w-[60%] aspect-square rounded-full overflow-hidden border-[8px] border-surface shadow-xl z-20 translate-y-[-10%] hidden md:block group"
             >
               <img 
                 src="/hero-cake-2.png"
@@ -133,7 +133,7 @@ const CustomCakesSection: React.FC = () => {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="inline-block text-xs font-extrabold text-primary tracking-[0.2em] uppercase"
+                className="inline-block text-xs font-extrabold text-primary tracking-[0.25em] uppercase"
               >
                 Tailor-Made Moments
               </motion.span>
@@ -189,7 +189,7 @@ const CustomCakesSection: React.FC = () => {
 
             <motion.div variants={fadeInUp}>
               <motion.button 
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(230, 76, 140, 0.3)" }}
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(230, 76, 140, 0.25)" }}
                 whileTap={{ scale: 0.95 }}
                 className="h-16 px-10 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3"
               >

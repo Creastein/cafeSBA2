@@ -112,42 +112,42 @@ const Hero: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="relative overflow-hidden pt-16 pb-24 lg:pt-24 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+    <section id="hero" className="relative overflow-hidden pt-24 pb-24 lg:pt-28 lg:pb-32 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
       {/* Background Decorative Elements */}
       <motion.div
         style={{ y: yBg1 }}
         animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-0 right-0 -mr-20 -mt-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px] -z-10"
+        className="absolute top-0 right-0 -mr-24 -mt-24 w-[640px] h-[640px] bg-primary/5 rounded-full blur-[110px] -z-10"
       ></motion.div>
       <motion.div
         style={{ y: yBg2 }}
         animate={{ scale: [1, 1.2, 1], opacity: [0.2, 0.4, 0.2] }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-0 left-0 -ml-20 -mb-20 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px] -z-10"
+        className="absolute bottom-0 left-0 -ml-24 -mb-24 w-[520px] h-[520px] bg-primary/10 rounded-full blur-[120px] -z-10"
       ></motion.div>
 
       <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-12">
         <motion.div
           style={{ y: yText }}
-          className="flex-1 space-y-8 z-10 lg:-mt-24"
+          className="flex-1 space-y-10 z-10 lg:-mt-16"
         >
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="show"
-            className="space-y-8"
+            className="space-y-9"
           >
             <div className="space-y-6">
               <motion.div
                 variants={fadeInVariants}
-                className="inline-flex items-center gap-2 px-3 py-1 bg-primary/5 border border-primary/10 rounded-full"
+                className="inline-flex items-center gap-2 px-4 py-1.5 bg-surface/80 border border-border rounded-full shadow-sm"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-                <span className="text-[10px] font-bold text-primary tracking-[0.2em] uppercase">Handcrafted in BSD</span>
+                <span className="text-[10px] font-bold text-primary tracking-[0.25em] uppercase">Handcrafted in BSD</span>
               </motion.div>
 
-              <div className="font-serif text-5xl sm:text-6xl lg:text-8xl font-bold leading-[1.1] text-text-main tracking-tight">
+              <div className="font-serif text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] text-text-main tracking-tight">
                 <div className="overflow-hidden">
                   <motion.div variants={textRevealVariants}>
                     Specialty Coffee
@@ -173,12 +173,12 @@ const Hero: React.FC = () => {
 
             <motion.div
               variants={fadeInVariants}
-              className="flex flex-col sm:flex-row gap-5 relative z-30"
+              className="flex flex-col sm:flex-row gap-4 relative z-30"
             >
               <motion.a
                 href="#menu"
                 onClick={(e) => scrollToSection(e, 'menu')}
-                whileHover={{ scale: 1.05, y: -2, boxShadow: "0 20px 30px -10px rgba(230, 76, 140, 0.4)" }}
+                whileHover={{ scale: 1.05, y: -2, boxShadow: "0 20px 30px -10px rgba(230, 76, 140, 0.3)" }}
                 whileTap={{ scale: 0.98 }}
                 className="relative overflow-hidden h-14 px-8 bg-primary hover:bg-primary/90 text-white font-bold rounded-2xl shadow-xl shadow-primary/20 transition-all flex items-center justify-center gap-3 group cursor-pointer"
               >
@@ -195,9 +195,9 @@ const Hero: React.FC = () => {
               <motion.a
                 href="#visit-us"
                 onClick={(e) => scrollToSection(e, 'visit-us')}
-                whileHover={{ scale: 1.05, y: -2, borderColor: "#e64c8c", boxShadow: "0 10px 20px -10px rgba(0,0,0,0.1)" }}
+                whileHover={{ scale: 1.05, y: -2, borderColor: "#e64c8c", boxShadow: "0 12px 24px -12px rgba(27, 14, 19, 0.15)" }}
                 whileTap={{ scale: 0.98 }}
-                className="h-14 px-8 bg-white border border-[#e6d1da] text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
+                className="h-14 px-8 bg-surface border border-border text-text-main font-bold rounded-2xl transition-all flex items-center justify-center gap-3 cursor-pointer"
               >
                 Visit Shop
                 <span className="material-symbols-outlined">location_on</span>
@@ -212,7 +212,7 @@ const Hero: React.FC = () => {
           style={{ y: yImage, scale: scaleImage }}
           className="flex-1 w-full relative z-20 flex justify-center items-center"
         >
-          <div className="relative w-full max-w-[500px] h-[500px] flex items-center justify-center perspective-1000">
+          <div className="relative w-full max-w-[520px] h-[520px] flex items-center justify-center perspective-1000">
             {/* Rotating Badge on the Top-Right of the image container */}
             <RotatingBadge />
 
@@ -228,7 +228,7 @@ const Hero: React.FC = () => {
                 }}
                 src={CAROUSEL_IMAGES[currentIndex].url}
                 alt={CAROUSEL_IMAGES[currentIndex].alt}
-                className="w-full h-auto object-cover rounded-3xl cursor-pointer drop-shadow-2xl absolute shadow-primary/10"
+                className="w-full h-auto object-cover rounded-[2.75rem] cursor-pointer drop-shadow-2xl absolute shadow-primary/10"
                 style={{
                   transformStyle: "preserve-3d"
                 }}

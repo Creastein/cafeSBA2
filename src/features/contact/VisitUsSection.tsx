@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const VisitUsSection: React.FC = () => {
     return (
-        <section id="visit-us" className="py-24 bg-white border-t border-[#f3e8ec]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section id="visit-us" className="py-28 bg-surface border-t border-border">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="grid lg:grid-cols-2 gap-10 lg:gap-16">
                     {/* Left: Info */}
                     <div className="space-y-10 order-2 lg:order-1">
@@ -27,7 +27,7 @@ const VisitUsSection: React.FC = () => {
 
                         <div className="space-y-8">
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-[#f3e8ec] rounded-full flex items-center justify-center shrink-0">
+                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
                                     <span className="material-symbols-outlined text-primary text-2xl">location_on</span>
                                 </div>
                                 <div>
@@ -41,7 +41,7 @@ const VisitUsSection: React.FC = () => {
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-[#f3e8ec] rounded-full flex items-center justify-center shrink-0">
+                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
                                     <span className="material-symbols-outlined text-primary text-2xl">schedule</span>
                                 </div>
                                 <div>
@@ -54,7 +54,7 @@ const VisitUsSection: React.FC = () => {
                             </div>
 
                             <div className="flex items-start gap-4">
-                                <div className="w-12 h-12 bg-[#f3e8ec] rounded-full flex items-center justify-center shrink-0">
+                                <div className="w-12 h-12 bg-primary/10 rounded-2xl flex items-center justify-center shrink-0">
                                     <span className="material-symbols-outlined text-primary text-2xl">call</span>
                                 </div>
                                 <div>
@@ -70,7 +70,7 @@ const VisitUsSection: React.FC = () => {
                                 href="https://maps.google.com"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 px-8 py-3 bg-text-main text-white rounded-full font-bold hover:bg-primary transition-colors duration-300"
+                                className="inline-flex items-center gap-2 px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors duration-300"
                             >
                                 Get Directions
                                 <span className="material-symbols-outlined text-sm">arrow_outward</span>
@@ -84,7 +84,7 @@ const VisitUsSection: React.FC = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
-                        className="h-[350px] lg:h-[500px] bg-gray-100 rounded-[2.5rem] overflow-hidden shadow-2xl relative group order-1 lg:order-2"
+                        className="h-[350px] lg:h-[500px] bg-bg-soft rounded-[2.5rem] overflow-hidden shadow-2xl relative group order-1 lg:order-2 border border-border"
                     >
                         {/* Custom Google Maps Embed - Grayscale filter for aesthetic */}
                         <iframe

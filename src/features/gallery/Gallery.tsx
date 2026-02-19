@@ -42,10 +42,10 @@ const Gallery: React.FC = () => {
     };
 
     return (
-        <section ref={sectionRef} id="gallery" className="bg-primary/5 py-16 lg:py-32 overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section ref={sectionRef} id="gallery" className="bg-surface-strong py-20 lg:py-28 overflow-hidden">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center space-y-4 mb-16">
-                    <p className="text-xs font-extrabold text-primary tracking-[0.2em] uppercase">Visual Inspiration</p>
+                    <p className="text-xs font-extrabold text-primary tracking-[0.25em] uppercase">Visual Inspiration</p>
                     <h2 className="font-serif text-4xl sm:text-5xl font-bold text-text-main">Our Gallery</h2>
                     <p className="text-text-sub max-w-2xl mx-auto">
                         A glimpse into our daily craft, from the first pour to the final garnish.
@@ -56,7 +56,7 @@ const Gallery: React.FC = () => {
                     {INSTAGRAM_IMAGES.map((img, index) => (
                         <div
                             key={img.id}
-                            className="relative aspect-[3/4] rounded-[2rem] overflow-hidden group cursor-default bg-text-main/5"
+                            className="relative aspect-[3/4] rounded-[2rem] overflow-hidden group cursor-default bg-surface border border-border"
                         >
                             {/* Parallax Wrapper */}
                             <div
@@ -85,12 +85,9 @@ const Gallery: React.FC = () => {
                         href="https://instagram.com"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-3 px-8 py-4 bg-white border border-[#f3e8ec] rounded-full text-primary font-bold shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
+                        className="inline-flex items-center gap-3 px-8 py-4 bg-surface border border-border rounded-full text-primary font-bold shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 group"
                     >
-                        <span className="bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500 bg-clip-text text-transparent group-hover:opacity-80 transition-opacity">
-                            <i className="fa-brands fa-instagram text-xl"></i> {/* Assuming font-awesome or similar, otherwise use material symbol */}
-                            <span className="material-symbols-outlined text-transparent bg-clip-text bg-gradient-to-tr from-yellow-400 via-red-500 to-purple-500">photo_camera</span>
-                        </span>
+                        <span className="material-symbols-outlined text-primary">photo_camera</span>
                         <span>Follow @SugarBloomAtelier</span>
                         <span className="material-symbols-outlined text-sm text-primary/60 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>

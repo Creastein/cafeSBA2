@@ -67,9 +67,9 @@ const AmbianceSection: React.FC = () => {
   const marqueeX2 = useTransform(scrollYProgress, [0, 1], [0, 500]);
 
   return (
-    <section id="ambiance" className="py-24 bg-[#fffcfc] overflow-hidden relative">
+    <section id="ambiance" className="py-28 bg-surface overflow-hidden relative">
       {/* Marquee Background */}
-      <div className="absolute top-10 opacity-5 pointer-events-none whitespace-nowrap overflow-hidden w-full">
+      <div className="absolute top-8 opacity-5 pointer-events-none whitespace-nowrap overflow-hidden w-full">
         <motion.div
           style={{ x: marqueeX }}
           className="inline-block text-6xl md:text-8xl lg:text-[10rem] font-bold text-primary leading-none"
@@ -84,7 +84,7 @@ const AmbianceSection: React.FC = () => {
         </motion.div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Text Content */}
           <motion.div
@@ -118,7 +118,7 @@ const AmbianceSection: React.FC = () => {
               </h2>
               <motion.p
                 variants={fadeInUp}
-                className="text-text-sub text-lg leading-relaxed border-l-4 border-primary/20 pl-6"
+                className="text-text-sub text-lg leading-relaxed border-l-4 border-primary/15 pl-6"
               >
                 Sugar Bloom is designed as a <strong className="text-text-main">creative sanctuary</strong>.
                 Whether you're chasing deadlines or escaping them, our space adapts to your rhythm.
@@ -141,12 +141,12 @@ const AmbianceSection: React.FC = () => {
                   variants={fadeInLeft}
                   whileHover={{ scale: 1.05, x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="flex items-start gap-3 p-3 rounded-xl hover:bg-white hover:shadow-lg transition-all duration-300"
+                  className="flex items-start gap-3 p-4 rounded-2xl bg-surface border border-border hover:shadow-lg transition-all duration-300"
                 >
                   <motion.div
                     whileHover={{ rotate: 360 }}
                     transition={{ duration: 0.5 }}
-                    className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0"
+                    className="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center text-primary shrink-0"
                   >
                     <span className="material-symbols-outlined">{item.icon}</span>
                   </motion.div>
@@ -160,19 +160,19 @@ const AmbianceSection: React.FC = () => {
 
             <motion.div
               variants={fadeInUp}
-              className="pt-4 flex gap-4"
+              className="pt-4 flex flex-wrap gap-4"
             >
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-text-main text-white rounded-full font-bold hover:bg-primary transition-colors duration-300 shadow-xl shadow-primary/20"
+                className="px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors duration-300 shadow-xl shadow-primary/20"
               >
                 Reserve a Table
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border-2 border-text-main text-text-main rounded-full font-bold hover:bg-text-main hover:text-white transition-colors duration-300"
+                className="px-8 py-3 border border-text-main/20 text-text-main rounded-full font-bold hover:bg-text-main hover:text-white transition-colors duration-300"
               >
                 View Menu
               </motion.button>

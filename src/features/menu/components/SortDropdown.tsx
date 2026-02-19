@@ -14,7 +14,7 @@ const SortDropdown: React.FC<SortDropdownProps> = ({ value, onChange }) => {
       <select
         value={value}
         onChange={(e) => onChange(e.target.value as SortDropdownProps['value'])}
-        className="appearance-none w-full px-4 pr-10 py-2 bg-white border border-[#f3e8ec] rounded-full text-sm font-medium text-text-main focus:outline-none focus:border-primary/50 cursor-pointer"
+        className="appearance-none w-full px-4 pr-10 py-2.5 bg-surface border border-border rounded-full text-sm font-medium text-text-main focus:outline-none focus:border-primary/50 focus:ring-2 focus:ring-primary/10 cursor-pointer"
       >
         {SORT_OPTIONS.map((option) => (
           <option key={option.value} value={option.value}>

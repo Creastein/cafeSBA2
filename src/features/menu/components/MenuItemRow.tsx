@@ -26,7 +26,7 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, index, activeTab }) => 
       initial="hidden"
       animate="visible"
       whileHover={{ x: 4 }}
-      className="flex flex-col sm:flex-row sm:justify-between sm:items-end group p-3 -mx-3 rounded-xl hover:bg-primary/5 transition-colors cursor-default"
+      className="flex flex-col sm:flex-row sm:justify-between sm:items-end group p-3 -mx-3 rounded-2xl hover:bg-primary/5 transition-colors cursor-default"
     >
       <div className="flex-1 pr-0 sm:pr-4 relative z-10 mb-2 sm:mb-0">
         <div className="flex flex-wrap items-baseline gap-2 mb-1">
@@ -40,7 +40,7 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, index, activeTab }) => 
                 className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider ${
                   tag === 'GF' ? 'bg-pink-100 text-pink-600' :
                   tag === 'DF' ? 'bg-amber-100 text-amber-600' :
-                  'bg-gray-100 text-gray-500'
+                  'bg-surface border border-border text-text-sub'
                 }`}
               >
                 {tag}
@@ -57,7 +57,7 @@ const MenuItemRow: React.FC<MenuItemRowProps> = ({ item, index, activeTab }) => 
 
       <div className="flex items-baseline gap-1 sm:flex-1 mt-2 sm:mt-0">
         {/* Styled Leader Line - Hidden on mobile */}
-        <div className="hidden sm:block flex-1 border-b-2 border-dotted border-primary/20 mb-1.5 opacity-50 group-hover:opacity-100 transition-opacity mx-2"></div>
+        <div className="hidden sm:block flex-1 border-b-2 border-dotted border-primary/25 mb-1.5 opacity-50 group-hover:opacity-100 transition-opacity mx-2"></div>
 
         <div className="flex items-center gap-2 relative z-10 bg-inherit pl-0 sm:pl-2">
           {item.variants && (

@@ -30,8 +30,8 @@ class ErrorBoundary extends Component<Props, State> {
       return (
         this.props.fallback || (
           <div className="min-h-screen flex items-center justify-center bg-bg-soft p-4">
-            <div className="max-w-md w-full bg-white rounded-3xl p-8 shadow-xl border border-[#f3e8ec] text-center">
-              <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+            <div className="max-w-md w-full bg-surface rounded-3xl p-8 shadow-xl border border-border text-center">
+              <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <span className="material-symbols-outlined text-red-500 text-3xl">error</span>
               </div>
               <h2 className="font-serif text-2xl font-bold text-text-main mb-2">

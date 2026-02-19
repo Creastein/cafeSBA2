@@ -47,7 +47,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ src, alt, isOpen, onClose }) =>
         exit={{ opacity: 0 }}
         transition={{ duration: 0.3 }}
         onClick={handleBackdropClick}
-        className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4"
+        className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4"
       >
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
@@ -65,7 +65,7 @@ const ImageModal: React.FC<ImageModalProps> = ({ src, alt, isOpen, onClose }) =>
           </button>
 
           {/* Image Container */}
-          <div className="relative bg-gray-900 rounded-2xl overflow-hidden">
+          <div className="relative bg-gray-900 rounded-2xl overflow-hidden border border-white/10">
             {!isLoaded && (
               <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
                 <span className="material-symbols-outlined text-4xl text-gray-600">image</span>

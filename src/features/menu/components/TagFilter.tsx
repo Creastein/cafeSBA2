@@ -21,8 +21,8 @@ const TagFilter: React.FC<TagFilterProps> = ({ selectedTags, onToggleTag }) => {
             whileTap={{ scale: 0.95 }}
             className={`px-3 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
               isSelected
-                ? tag.color + ' ring-2 ring-offset-1 ring-current'
-                : 'bg-gray-100 text-gray-500 hover:bg-gray-200'
+                ? tag.color + ' ring-2 ring-primary/20 ring-offset-1 ring-bg-soft'
+                : 'bg-surface border border-border text-text-sub hover:text-text-main'
             }`}
           >
             {tag.label}

@@ -38,17 +38,17 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
         animate="visible"
         whileHover={{ y: -8, scale: 1.02 }}
         whileTap={{ scale: 0.98 }}
-        className="group bg-white rounded-3xl p-3 shadow-md hover:shadow-xl transition-all duration-300 border border-[#f3e8ec] cursor-pointer"
+        className="group bg-surface rounded-3xl p-3 shadow-md hover:shadow-xl transition-all duration-300 border border-border cursor-pointer"
       >
         <div 
-          className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-gray-100"
+          className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-bg-soft"
           onClick={handleImageClick}
         >
           {item.image && !hasImageError ? (
             <>
               {!isImageLoaded && (
-                <div className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center">
-                  <span className="material-symbols-outlined text-4xl text-gray-300">image</span>
+                <div className="absolute inset-0 bg-bg-soft animate-pulse flex items-center justify-center">
+                  <span className="material-symbols-outlined text-4xl text-text-sub/40">image</span>
                 </div>
               )}
               <img
@@ -62,7 +62,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
                 onError={() => setHasImageError(true)}
               />
               {/* Zoom Icon Overlay */}
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/15 transition-colors duration-300 flex items-center justify-center">
                 <motion.div
                   initial={{ opacity: 0, scale: 0.5 }}
                   whileHover={{ opacity: 1, scale: 1 }}
@@ -83,7 +83,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
-            className="absolute bottom-3 right-3 bg-white/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1"
+            className="absolute bottom-3 right-3 bg-surface/90 backdrop-blur-sm px-3 py-1.5 rounded-full shadow-sm flex items-center gap-1"
           >
             <span className="text-sm font-bold text-primary">{item.price}</span>
           </motion.div>
@@ -99,7 +99,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
                 className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider shadow-sm ${
                   tag === 'Recommended'
                     ? 'bg-primary text-white'
-                    : 'bg-white/90 text-text-sub backdrop-blur-sm'
+                    : 'bg-surface/90 text-text-sub backdrop-blur-sm'
                 }`}
               >
                 {tag}

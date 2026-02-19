@@ -49,26 +49,26 @@ const TrustBar: React.FC = () => {
   return (
     <motion.section 
       style={{ backgroundColor }}
-      className="border-y border-[#f3e8ec] py-12"
+      className="border-y border-border py-14"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          className="flex flex-wrap items-center justify-center gap-12 md:gap-24"
+          className="flex flex-wrap items-center justify-center gap-10 md:gap-20"
         >
           {/* Google Rating */}
           <motion.div
             variants={cardVariants}
             whileHover={{ y: -5, scale: 1.02 }}
-            className="flex items-center gap-4 bg-bg-soft px-6 py-4 rounded-2xl border border-[#f3e8ec] group cursor-default hover:shadow-lg hover:shadow-primary/5 transition-all duration-500"
+            className="flex items-center gap-4 bg-surface px-6 py-4 rounded-2xl border border-border group cursor-default hover:shadow-lg hover:shadow-primary/5 transition-all duration-500"
           >
             <motion.div 
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.5 }}
-              className="w-10 h-10 bg-white rounded-xl shadow-sm flex items-center justify-center"
+              className="w-10 h-10 bg-surface-strong rounded-xl shadow-sm flex items-center justify-center"
             >
               <span className="material-symbols-outlined text-primary">star</span>
             </motion.div>
@@ -101,7 +101,7 @@ const TrustBar: React.FC = () => {
             <motion.div 
               whileHover={{ scale: 1.1, rotate: -12 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/10"
+              className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/10"
             >
               <span className="material-symbols-outlined text-primary text-3xl">spa</span>
             </motion.div>
@@ -120,7 +120,7 @@ const TrustBar: React.FC = () => {
             <motion.div 
               whileHover={{ scale: 1.1, rotate: 12 }}
               transition={{ type: "spring", stiffness: 400 }}
-              className="w-12 h-12 rounded-full bg-primary/5 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/10"
+              className="w-12 h-12 rounded-2xl bg-primary/5 flex items-center justify-center transition-all duration-500 group-hover:bg-primary/10"
             >
               <span className="material-symbols-outlined text-primary text-3xl">coffee_maker</span>
             </motion.div>

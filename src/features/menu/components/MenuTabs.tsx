@@ -39,12 +39,12 @@ const MenuTabs: React.FC<MenuTabsProps> = ({ menus, activeTab, onTabChange }) =>
     <div className="relative">
       {/* Left Fade Indicator */}
       {canScrollLeft && (
-        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#fffcfc] to-transparent z-10 pointer-events-none" />
+        <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-surface-strong to-transparent z-10 pointer-events-none" />
       )}
       
       {/* Right Fade Indicator */}
       {canScrollRight && (
-        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#fffcfc] to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-surface-strong to-transparent z-10 pointer-events-none" />
       )}
 
       <div 
@@ -52,7 +52,7 @@ const MenuTabs: React.FC<MenuTabsProps> = ({ menus, activeTab, onTabChange }) =>
         className="flex justify-start sm:justify-center overflow-x-auto scrollbar-hide py-2 px-4 -mx-4"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
-        <div className="inline-flex p-1 bg-white border border-[#f3e8ec] rounded-full shadow-sm flex-shrink-0">
+        <div className="inline-flex p-1 bg-surface border border-border rounded-full shadow-sm flex-shrink-0">
           {menus.map((menu) => (
             <button
               key={menu.id}
@@ -67,7 +67,7 @@ const MenuTabs: React.FC<MenuTabsProps> = ({ menus, activeTab, onTabChange }) =>
               {activeTab === menu.id && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-primary/5 rounded-full"
+                  className="absolute inset-0 bg-primary/10 rounded-full"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}

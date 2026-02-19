@@ -32,8 +32,8 @@ const MenuSection: React.FC = () => {
   }, [activeTab, clearFilters]);
 
   return (
-    <section id="menu" className="py-20 bg-[#fffcfc]">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="menu" className="py-24 bg-surface-strong">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
           <motion.div
@@ -75,7 +75,7 @@ const MenuSection: React.FC = () => {
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-8 space-y-4"
+          className="mb-10 space-y-4"
         >
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1">
@@ -121,7 +121,7 @@ const MenuSection: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.4 }}
-            className="bg-white rounded-3xl p-8 md:p-12 shadow-xl shadow-primary/5 border border-[#f8f1f4]"
+            className="bg-surface rounded-3xl p-8 md:p-12 shadow-xl shadow-primary/5 border border-border"
           >
             {filteredCategories.length > 0 ? (
               <div className="grid md:grid-cols-2 gap-12 lg:gap-16">
@@ -147,7 +147,7 @@ const MenuSection: React.FC = () => {
               </div>
             ) : (
               <div className="text-center py-16">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
                   <span className="material-symbols-outlined text-primary text-2xl">search_off</span>
                 </div>
                 <h3 className="font-serif text-xl font-bold text-text-main mb-2">
@@ -165,7 +165,7 @@ const MenuSection: React.FC = () => {
               </div>
             )}
 
-            <div className="mt-12 text-center pt-8 border-t border-[#f3e8ec]">
+            <div className="mt-12 text-center pt-8 border-t border-border">
               <p className="text-text-sub text-sm italic">
                 * Prices subject to change. GF = Gluten Free, DF = Dairy Free.
               </p>
