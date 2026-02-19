@@ -1,5 +1,5 @@
 
-import React, { useState, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import ErrorBoundary from './components/ErrorBoundary';
 
 const Header = React.lazy(() => import('./components/Header'));
@@ -13,14 +13,9 @@ const VisitUsSection = React.lazy(() => import('./features/contact/VisitUsSectio
 const Footer = React.lazy(() => import('./components/Footer'));
 
 import ScrollManager from './components/ScrollManager';
+import WhatsAppFloat from './components/ui/WhatsAppFloat';
 
 const App: React.FC = () => {
-  const [cartCount] = useState(2);
-
-
-
-
-
   return (
     <>
       <ScrollManager />
@@ -31,7 +26,7 @@ const App: React.FC = () => {
           </div>
         }>
           <div className="min-h-screen font-sans selection:bg-primary/20">
-            <Header cartCount={cartCount} />
+            <Header />
             <main className="pt-20">
               <Hero />
               <TrustBar />
@@ -44,6 +39,7 @@ const App: React.FC = () => {
             <Footer />
           </div>
         </Suspense>
+        <WhatsAppFloat />
       </ErrorBoundary>
     </>
   );

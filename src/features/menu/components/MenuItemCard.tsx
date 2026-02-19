@@ -12,7 +12,7 @@ const cardVariants = {
     transition: {
       delay: i * 0.1,
       duration: 0.5,
-      ease: [0.6, 0.01, -0.05, 0.95] as const,
+      ease: [0.6, 0.01, 0.05, 0.95] as const,
     },
   }),
 };
@@ -40,7 +40,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
         whileTap={{ scale: 0.98 }}
         className="group bg-surface rounded-3xl p-3 shadow-md hover:shadow-xl transition-all duration-300 border border-border cursor-pointer"
       >
-        <div 
+        <div
           className="relative aspect-[4/3] rounded-2xl overflow-hidden mb-4 bg-bg-soft"
           onClick={handleImageClick}
         >
@@ -55,9 +55,8 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
                 src={item.image}
                 alt={item.name}
                 loading="lazy"
-                className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${
-                  isImageLoaded ? 'opacity-100' : 'opacity-0'
-                }`}
+                className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-110 ${isImageLoaded ? 'opacity-100' : 'opacity-0'
+                  }`}
                 onLoad={() => setIsImageLoaded(true)}
                 onError={() => setHasImageError(true)}
               />
@@ -79,7 +78,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
           )}
 
           {/* Floating Price Tag */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 + index * 0.1 }}
@@ -96,11 +95,10 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({ item, index }) => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.3 + tIdx * 0.1 }}
-                className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider shadow-sm ${
-                  tag === 'Recommended'
+                className={`text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider shadow-sm ${tag === 'Recommended'
                     ? 'bg-primary text-white'
                     : 'bg-surface/90 text-text-sub backdrop-blur-sm'
-                }`}
+                  }`}
               >
                 {tag}
               </motion.span>

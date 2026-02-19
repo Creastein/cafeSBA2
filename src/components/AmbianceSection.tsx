@@ -92,7 +92,7 @@ const AmbianceSection: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
-            className="order-2 lg:order-1 space-y-8"
+            className="order-1 space-y-8"
           >
             <motion.div variants={fadeInUp}>
               <motion.span
@@ -160,22 +160,30 @@ const AmbianceSection: React.FC = () => {
 
             <motion.div
               variants={fadeInUp}
-              className="pt-4 flex flex-wrap gap-4"
+              className="pt-4 flex flex-wrap gap-4 relative z-20"
             >
-              <motion.button
+              <motion.a
+                href="https://wa.me/6287878432708?text=Halo%20Sugar%20Bloom!%20Saya%20mau%20reservasi%20meja%20%F0%9F%AA%91"
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors duration-300 shadow-xl shadow-primary/20"
+                className="px-8 py-3 bg-primary text-white rounded-full font-bold hover:bg-primary/90 transition-colors duration-300 shadow-xl shadow-primary/20 inline-block"
               >
                 Reserve a Table
-              </motion.button>
-              <motion.button
+              </motion.a>
+              <motion.a
+                href="#menu"
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
+                  e.preventDefault();
+                  document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="px-8 py-3 border border-text-main/20 text-text-main rounded-full font-bold hover:bg-text-main hover:text-white transition-colors duration-300"
+                className="px-8 py-3 border border-text-main/20 text-text-main rounded-full font-bold hover:bg-text-main hover:text-white transition-colors duration-300 cursor-pointer inline-block"
               >
                 View Menu
-              </motion.button>
+              </motion.a>
             </motion.div>
           </motion.div>
 
@@ -185,7 +193,7 @@ const AmbianceSection: React.FC = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="order-1 lg:order-2 relative"
+            className="order-2 relative"
           >
             {/* Decorative Blob */}
             <motion.div
